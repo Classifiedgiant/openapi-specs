@@ -1,0 +1,58 @@
+openapi: 3.0.1
+info:
+  title: OAuthAPI
+  description: Specification for OAuth connecivity
+  version: 0.0.1
+
+servers:
+  - url: localhost
+    description: Localhost testing
+
+paths:
+  /oauth/githubAuthorize:
+    get:
+      summary: Github Authorization request
+      description: Redirect to Github for authorization details
+      parameters:
+        - name: response_type
+          in: query
+          required: true
+          schema:
+            type: string
+            enum: [code]
+          description: Specifies the response type
+        - name: client_id
+          in: query
+          required: true
+          schema:
+            type: string
+          description: The client ID of the application
+        - name: scope
+          in: query
+          required: true
+          schema:
+            type: string
+          description: Scope of the application requesting authorization
+        - name: state
+          in: query
+          required: true
+          schema:
+            type: string
+          description: State to confirm access came originally from this application
+      responses:
+        '302':
+          description: Redirect to Github for Authorization
+        '400':
+          description: Bad request with missing or invalid parameters
+
+
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://github.com/login/oauth/authorize
+          tokenUrl: https://github.com/login/oauth/access_token
+          scopes: 
+           read:all: just work
