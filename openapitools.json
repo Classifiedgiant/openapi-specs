@@ -6,10 +6,11 @@
     "generators": {
       "v2.0": {
         "generatorName": "aspnetcore",
-        "output": "../oauth-swagger",
-        "inputSpec": "./oauth-swagger.yaml",
+        "output": "../cs-oauth-provider-lib",
+        "inputSpec": "./cs-oauth-provider-lib-swagger.yaml",
         "additionalProperties": {
           "apsnetCoreVersion": "8.0",
+          "packageName": "OAuthProviderLib",
           "buildTarget": "library",
           "sourceFolder": "./src"
         }
