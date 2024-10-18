@@ -6,11 +6,12 @@
     "generators": {
       "v2.0": {
         "generatorName": "aspnetcore",
-        "output": "./lockie_test",
+        "output": "../oauth-swagger",
         "inputSpec": "./oauth-swagger.yaml",
         "additionalProperties": {
-          "buildTarget": "program",
-          "sourceFolder": "./server"
+          "apsnetCoreVersion": "8.0",
+          "buildTarget": "library",
+          "sourceFolder": "./src"
         }
       }
     }
